@@ -64,6 +64,6 @@ module.exports.Stack = class {
 	 * @returns {String} stack values in string format
 	 */
 	print = () => {
-		return this.stack.join('\n');
+		return this.stack.reverse().join('\n');
 	};
 };

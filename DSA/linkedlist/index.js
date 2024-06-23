@@ -80,9 +80,6 @@ class LinkedList {
 		const newNode = new Node(data, prevNode.next);
 		prevNode.next = newNode;
 	};
-	removeHead = () => {
-		this.head = this?.head?.next;
-	};
 	/**
 	 * Removes head node from list
 	 * @param {null}
@@ -160,7 +157,10 @@ LinkedList.prototype.search = function (key) {
 	}
 	return false;
 };
-
+/**
+ * traverses linked list and prints to console
+ * @returns {null}
+ */
 LinkedList.prototype.traverse = function () {
 	const listOfValues = [];
 	let current = this.head;
@@ -170,3 +170,34 @@ LinkedList.prototype.traverse = function () {
 	}
 	console.log(listOfValues.join(' -> '));
 };
+
+/**
+ * 
+ * @returns {LinkedList} reversed linked list
+ */
+LinkedList.prototype.reverse = function () {
+  if (!this.head) {
+    throw new Error('List is empty!');
+  }
+  let reversedLinkedList = new LinkedList()
+  let current = this.head;
+  while(current){
+    reversedLinkedList.insertBeforeHead(current.data)
+    current = current.next
+  }
+  return reversedLinkedList;
+}
+/*  */
+// const test = ()=>{
+//   let LL = new LinkedList()
+//   LL.insertAtBeginning(1);
+//   LL.insertAtEnd(2)
+//   LL.insertAtEnd(3)
+//   LL.insertAtEnd(4)
+//   LL.insertAtEnd(5)
+//   LL.insertAtEnd(6)
+//   console.log(JSON.stringify(LL.head));
+//   const reversedLLL = LL.reverse();
+//   console.log(JSON.stringify((reversedLLL)));
+// }
+// test()

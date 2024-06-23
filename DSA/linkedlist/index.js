@@ -146,3 +146,27 @@ class LinkedList {
 		return this.head;
 	};
 }
+/**
+ * search linked list for given key
+ * @param {key} key key to search in linked list
+ * @returns {Boolean} indicates the status of search
+ */
+LinkedList.prototype.search = function (key) {
+	let current = this.head;
+	while (current) {
+		if (current.data === key) {
+			return true;
+		}
+	}
+	return false;
+};
+
+LinkedList.prototype.traverse = function () {
+	const listOfValues = [];
+	let current = this.head;
+	while (current) {
+		listOfValues.push(current.data);
+		current = current.next;
+	}
+	console.log(listOfValues.join(' -> '));
+};

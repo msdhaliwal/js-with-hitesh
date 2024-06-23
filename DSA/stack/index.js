@@ -1,4 +1,4 @@
-module.exports.Stack = class  {
+module.exports.Stack = class {
 	constructor() {
 		this.stack = [];
 	}
@@ -15,13 +15,19 @@ module.exports.Stack = class  {
 	 * @returns {null}
 	 */
 	pop = () => {
-		this.stack.pop();
+		if (this.isEmpty()) {
+			throw new Error('Stack is empty!');
+		}
+		return this.stack.pop();
 	};
 	/**
 	 * return top most value of stack
 	 * @returns {} value on top (last) of stack
 	 */
 	peak = () => {
+		if (this.isEmpty()) {
+			throw new Error('Stack is empty!');
+		}
 		return this.stack[this.stack.length - 1];
 	};
 	/**
@@ -42,7 +48,7 @@ module.exports.Stack = class  {
 	 * removes all elements of stack
 	 * @returns {Number} size of stack
 	 */
-	clearStack = () => {
+	clear = () => {
 		this.stack = [];
 	};
 	/**
@@ -57,7 +63,7 @@ module.exports.Stack = class  {
 	 * print stack in string format
 	 * @returns {String} stack values in string format
 	 */
-	printStack = () => {
+	print = () => {
 		return this.stack.join('\n');
 	};
-}
+};
